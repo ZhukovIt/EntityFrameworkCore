@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_Core_Education", "EF_Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFirstApp", "..\DbFirstApp\DbFirstApp.csproj", "{F5236A60-4F33-4FDB-99D8-297DBF6447A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD Project", "..\CRUD Project\CRUD Project.csproj", "{0A9AC356-55D7-4775-8728-CE8D20C32433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F5236A60-4F33-4FDB-99D8-297DBF6447A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5236A60-4F33-4FDB-99D8-297DBF6447A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5236A60-4F33-4FDB-99D8-297DBF6447A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9AC356-55D7-4775-8728-CE8D20C32433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9AC356-55D7-4775-8728-CE8D20C32433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9AC356-55D7-4775-8728-CE8D20C32433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9AC356-55D7-4775-8728-CE8D20C32433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
