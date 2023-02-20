@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Connection;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUD_Project
 {
     class Program
     {
+        private static string connectionString;
+        private static DbContextOptions<ApplicationContext> options;
+
         static void Main(string[] args)
         {
+            connectionString = ConnectionConfig.GetDefaultConnectionString();
+            options = new DbContextOptionsBuilder<ApplicationContext>().UseSqlite(connectionString).Options;
             //DoMain();
             DoMainAsync();
         }
@@ -64,7 +70,7 @@ namespace CRUD_Project
 
         static void InsertUsers()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User tom = new User { Name = "Tom", Age = 33 };
                 User alice = new User { Name = "Alice", Age = 26 };
@@ -78,7 +84,7 @@ namespace CRUD_Project
 
         static async void InsertUsersAsync()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User tom = new User { Name = "Tom", Age = 33 };
                 User alice = new User { Name = "Alice", Age = 26 };
@@ -91,7 +97,7 @@ namespace CRUD_Project
 
         static List<User> SelectUsers()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 return db.Users.ToList();
             }
@@ -99,7 +105,7 @@ namespace CRUD_Project
 
         static async Task<List<User>> SelectUsersAsync()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 return await db.Users.ToListAsync();
             }
@@ -107,7 +113,7 @@ namespace CRUD_Project
 
         static void UpdateUsers()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User user = db.Users.FirstOrDefault();
                 if (user != null)
@@ -122,7 +128,7 @@ namespace CRUD_Project
 
         static async void UpdateUsersAsync()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User user = await db.Users.FirstOrDefaultAsync();
                 if (user != null)
@@ -137,7 +143,7 @@ namespace CRUD_Project
 
         static void DeleteUsers()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User user = db.Users.FirstOrDefault();
                 if (user != null)
@@ -151,7 +157,7 @@ namespace CRUD_Project
 
         static async void DeleteUsersAsync()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext db = new ApplicationContext(options))
             {
                 User user = await db.Users.FirstOrDefaultAsync();
                 if (user != null)

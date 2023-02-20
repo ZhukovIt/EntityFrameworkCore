@@ -9,11 +9,6 @@ namespace CRUD_Project
     {
         public DbSet<User> Users { get; set; } = null;
 
-        public ApplicationContext() => Database.EnsureCreated();
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source = helloapp.db");
-        }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) => Database.EnsureCreated();
     }
 }
